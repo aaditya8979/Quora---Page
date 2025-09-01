@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Post in detail</title>
+        <link rel="stylesheet" href="/showpost.css">
+    <style>
+        .quora-button {
+        display: inline-block;
+        padding: 8px 20px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #B92B27; /* Quora red */
+        background-color: transparent;
+        border: 1.5px solid #B92B27;
+        border-radius: 3px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        .quora-button:hover,
+        .quora-button:focus {
+        background-color: #B92B27;
+        color: white;
+        text-decoration: none;
+        }
+    </style>
+    </head>
+    <body>
+        <h2>Here is your post in detail</h2>
+        
+        <div class="post">
+            <div class="post-id">Post ID: <%= post.id %></div>
+            <div class="post-header">
+                <div class="user-avatar"></div>
+                <span class="username">@<%= post.username %></span>
+            </div>
+            <div class="post-content">
+                <%= post.content %>
+            </div>
+            <br>
+            <a href="/posts" title="Back to home" class="quora-button">Back to home</a>
+        </div>
+    </body>
+</html>

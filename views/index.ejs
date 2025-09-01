@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>All posts</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="quora-header">
+            <div class="logo">Quora</div>
+            <nav class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Answer</a>
+                <a href="#" class="nav-link">Spaces</a>
+                <a href="#" class="nav-link">Notifications</a>
+            </nav>
+            <div class="search-area">
+                <input type="text" placeholder="Search Quora..." class="search-input">
+            </div>
+            <div class="profile-area">
+                <img src="Aadi1.jpg" class="profile-pic"/>
+                <div class="dropdown">
+                <button class="dropdown-btn">▼</button>
+                <!-- Add dropdown content here -->
+                </div>
+            </div>
+        </header>
+        <br>
+        <div class="sidebar">
+            <a href="/posts">Home</a>
+            <a href="/spaces">Spaces</a>
+            <a href="/notifications">Notifications</a>
+            <a href="/profile">Profile</a>
+            <a href="/settings">Settings</a>
+            <a href="/logout">Logout</a>
+            </div>
+            <div class="main-content">
+            <!-- Your main page content goes here -->
+            
+
+                <a href="http://localhost:8080/posts/new" class="add-post-link">
+                <button id="addPostBtn" class="add-post-button">
+                    + Add New Post
+                </button>
+                </a>
+                <% for (post of posts) { %> 
+
+                <div class="quora-post-card">
+                    <div class="post-header">
+                        <div class="user-avatar"></div>
+                        <span class="username">@<%= post.username %></span>
+                    </div>
+                    <div class="post-content">
+                        <%= post.content  %>
+                    </div>
+                    <br>
+                    
+                    <a href="http://localhost:8080/posts/<%=post.id%>" class="see-detail-link">
+                        <button class="see-detail-button" type="button">See in detail</button>
+                    </a>
+                    <a href="http://localhost:8080/posts/<%=post.id%>/edit" class="see-detail-link">
+                        <button class="see-detail-button" type="button">Edit</button>
+                    </a>
+                    <br>
+                    <br>
+                    <form method="post" action="/posts/<%=post.id%>?_method=DELETE">
+                        <button title="Delete" class="quora-delete-button">Delete Post</button>
+                    </form>            
+                </div>
+
+                <%} %>
+
+            <br>
+            <br>
+            <hr>
+        </div>
+        <footer class="quora-footer">
+            <div class="footer-logo">
+                Quora
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">About</a>
+                <a href="#" class="footer-link">Privacy</a>
+                <a href="#" class="footer-link">Terms</a>
+                <a href="#" class="footer-link">Careers</a>
+                <a href="#" class="footer-link">Help</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="footer-cta">
+                <button class="subscribe-btn">Subscribe</button>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 Quora ~ AADITYA, Inc. All rights reserved.
+            </div>
+        </footer>
+    
+
+    </body>
+    <script src="app.js"></script>
+</html>

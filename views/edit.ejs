@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <title>Quora Style Edit Page</title>
+            <style>
+            body {
+                font-family: "Georgia", serif;
+                background-color: #fff;
+                color: #2c3e50;
+                margin: 0;
+                padding: 40px 20px;
+                display: flex;
+                justify-content: center;
+            }
+            .edit-container {
+                width: 600px;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+                background-color: #fff;
+                padding: 30px 40px;
+            }
+            h2 {
+                font-weight: 600;
+                margin-bottom: 24px;
+                font-size: 28px;
+                border-bottom: 1px solid #eeeeee;
+                padding-bottom: 12px;
+                color: #111;
+            }
+            label {
+                font-size: 14px;
+                font-weight: 600;
+                margin-bottom: 8px;
+                display: block;
+                color: #555;
+            }
+            input[readonly], input, textarea {
+                font-family: "Georgia", serif;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 12px 15px;
+                width: 100%;
+                box-sizing: border-box;
+                transition: border-color 0.3s ease;
+            }
+            input[readonly] {
+                background-color: #f8f8f8;
+                color: #999;
+                cursor: not-allowed;
+            }
+            input:focus, textarea:focus {
+                outline: none;
+                border-color: #b30000; /* Quora dark red */
+                box-shadow: 0 0 6px #b30000aa;
+            }
+            textarea {
+                min-height: 160px;
+                resize: vertical;
+                line-height: 1.5;
+                color: #222;
+            }
+            .btn-save {
+                background-color: #b30000;
+                border: none;
+                color: white;
+                padding: 12px 25px;
+                font-weight: 700;
+                font-size: 16px;
+                margin-top: 20px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .btn-save:hover {
+                background-color: #7f0000;
+            }
+            .field-group {
+                margin-bottom: 20px;
+            }
+            .quora-button {
+            display: inline-block;
+            padding: 8px 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #B92B27; /* Quora red */
+            background-color: transparent;
+            border: 1.5px solid #B92B27;
+            border-radius: 3px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+
+            .quora-button:hover,
+            .quora-button:focus {
+            background-color: #B92B27;
+            color: white;
+            text-decoration: none;
+            }
+            </style>
+    </head>
+    <body>
+        <div class="edit-container">
+            <h2>Edit Post</h2>
+            <form method="post" action="/posts/<%= post.id%>?_method=PATCH" >
+            <div class="field-group">
+                <label for="id">ID</label>
+                <input type="text" id="id" name="id" value="<%= post.id %>" readonly />
+            </div>
+            <div class="field-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" value="<%= post.username %>" readonly />
+            </div>
+            <div class="field-group">
+                <label for="content">Content</label>
+                <textarea id="content" name="content"><%= post.content %></textarea>
+            </div>
+            <button type="submit" class="btn-save">Save</button>
+            <a href="/posts" title="Back to home" class="quora-button">Back to home</a>
+            </form>
+        </div>
+    </body>
+</html>
