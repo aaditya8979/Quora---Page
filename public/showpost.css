@@ -1,0 +1,45 @@
+.post {
+  max-width: 620px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.05);
+  margin: 20px auto;
+  padding: 20px 24px;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  color: #2d2d2d;
+}
+
+.post-id {
+  font-size: 0.85rem;
+  color: #7a7a7a;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.user-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: #b92b27; /* Quora red */
+  margin-right: 14px;
+}
+
+.username {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #b92b27;
+}
+
+.post-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
